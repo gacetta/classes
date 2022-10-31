@@ -9,6 +9,26 @@ const notes = [{
     body: `Get a new lamp`
 }]
 
+const filters = {
+    searchText: ''
+}
+
+const renderNotes = function (notes, filters) {
+    const filteredNotes = notes.filter((note) => {
+        return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
+    })
+    
+    document.querySelector('#notes').innerHTML = '';
+
+    filteredNotes.forEach((note) => {
+        const newNote = document.createElement('p');
+        newNote.textContent = note.title;
+        document.querySelector('#notes').appendChild(newNote);
+    })
+}
+
+renderNotes(notes, filters);
+
 document.querySelector('#create-note').addEventListener('click', (e) => {
     e.target.textContent = "you done clicked me";
 })
@@ -20,7 +40,8 @@ document.querySelector('#remove-all').addEventListener('click', (e) => {
 })
 
 document.querySelector('#search-text').addEventListener('input', (e) => {
-    console.log(e.target.value);
+    filters.searchText = e.target.value;
+    renderNotes(notes, filters);
 })
 
 

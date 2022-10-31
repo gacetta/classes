@@ -15,26 +15,44 @@ const todos = [{
     completed: true
 }]
 
-const incompleteTodos = todos.filter((todo) => {
-    return !todo.completed;
+const filters = {
+    searchText: ''
+}
+
+function renderTodos(todos, filters) {
+    const filteredTodos = todos.filter((todo) => {
+        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+    })
+    console.log(filteredTodos)
+    
+    document.querySelector('#todos').innerHTML = '';
+
+    // Render Todos Left
+    const todosLeft = document.createElement('h2');
+    todosLeft.textContent = `You have ${filteredTodos.length} todos left`;
+    document.querySelector('#todos').appendChild(todosLeft);
+
+    filteredTodos.forEach((el) => {
+        const newTodo = document.createElement('p');
+        newTodo.textContent = el.text;
+        document.querySelector('#todos').appendChild(newTodo);
+    })
+}
+
+renderTodos(todos, filters);
+
+// Event Listener for Search Todos Text Input
+document.querySelector('#search-text').addEventListener('input', (e) => {
+    filters.searchText = e.target.value;
+    renderTodos(todos, filters);
 })
 
-// Create How Many Todos left h2
-const todosLeft = document.createElement('h2');
-todosLeft.textContent = `You have ${incompleteTodos.length} todos left`;
-document.querySelector('body').appendChild(todosLeft);
-
-// Add a p for each todo
-todos.forEach((el) => {
-    const newTodo = document.createElement('p');
-    newTodo.textContent = el.text;
-    document.querySelector('body').appendChild(newTodo);
-})
-
+// Event Listener for Add New Todo button
 document.querySelector('#add-todo').addEventListener('click', (e) => {
     console.log('you clicked me you fool!')
 })
 
+// Event Listener for Add New Todo Text Input
 document.querySelector('#new-todo').addEventListener('input', (e) => {
     console.log(e.target.value);
 })
