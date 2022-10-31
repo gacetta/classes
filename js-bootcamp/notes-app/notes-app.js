@@ -1,15 +1,28 @@
+const notes = [{
+    title: `my next trip`,
+    body: `I would like to go to New Zealand`
+}, {
+    title: `Habits to work on`,
+    body: `Learn to code`
+}, {
+    title: `Office modification`,
+    body: `Get a new lamp`
+}]
 
-// Query and remove
-// const p = document.querySelector('p');
-// p.remove();
-
-//Query all and remove
-const ps = document.querySelectorAll('p');
-ps.forEach(function (p) {
-    p.textContent = '******';
-    // console.log(p.textContent);
-    // p.remove();
+document.querySelector('#create-note').addEventListener('click', (e) => {
+    e.target.textContent = "you done clicked me";
 })
+
+document.querySelector('#remove-all').addEventListener('click', (e) => {
+    document.querySelectorAll('.note').forEach((note) => {
+        note.remove();
+    })
+})
+
+document.querySelector('#search-text').addEventListener('input', (e) => {
+    console.log(e.target.value);
+})
+
 
 
 // 'use strict'
