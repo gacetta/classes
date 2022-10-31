@@ -33,18 +33,14 @@ document.querySelector('#create-note').addEventListener('click', (e) => {
     e.target.textContent = "you done clicked me";
 })
 
-document.querySelector('#remove-all').addEventListener('click', (e) => {
-    document.querySelectorAll('.note').forEach((note) => {
-        note.remove();
-    })
-})
-
 document.querySelector('#search-text').addEventListener('input', (e) => {
     filters.searchText = e.target.value;
     renderNotes(notes, filters);
 })
 
-
+document.querySelector('#filtered-by').addEventListener('change', (e) => {
+    console.log(e.target.value);
+})
 
 // 'use strict'
 
