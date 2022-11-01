@@ -1,43 +1,8 @@
-const todos = [{
-    text: 'Order cat food',
-    completed: false
-}, {
-    text: 'Clean Kitchen',
-    completed: true
-}, {
-    text: 'Buy Food',
-    completed: true
-}, {
-    text: 'Do Work',
-    completed: false
-}, {
-    text: 'Exercise',
-    completed: true
-}]
+let todos = getSavedTodos();
 
 const filters = {
     searchText: '',
     hideCompleted: false
-}
-
-function renderTodos(todos, filters) {
-    const filteredTodos = todos.filter((todo) => {
-        if (filters.hideCompleted && todo.completed) return false;
-        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
-    })
-    
-    document.querySelector('#todos').innerHTML = '';
-
-    // Render Todos Left
-    const todosLeft = document.createElement('h2');
-    todosLeft.textContent = `You have ${filteredTodos.length} todos left`;
-    document.querySelector('#todos').appendChild(todosLeft);
-
-    filteredTodos.forEach((el) => {
-        const newTodo = document.createElement('p');
-        newTodo.textContent = el.text;
-        document.querySelector('#todos').appendChild(newTodo);
-    })
 }
 
 renderTodos(todos, filters);
@@ -50,6 +15,7 @@ document.querySelector('#add-todo').addEventListener('submit', (e) => {
         completed: false,
     }
     todos.push(newTodo);
+    saveTodos(todos);
     renderTodos(todos, filters);
     e.target.elements.todoText.value = '';
 })

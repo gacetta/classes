@@ -1,43 +1,28 @@
-const notes = [{
-    title: `my next trip`,
-    body: `I would like to go to New Zealand`
-}, {
-    title: `Habits to work on`,
-    body: `Learn to code`
-}, {
-    title: `Office modification`,
-    body: `Get a new lamp`
-}]
+let notes = getSavedNotes();
 
 const filters = {
     searchText: ''
 }
 
-const renderNotes = function (notes, filters) {
-    const filteredNotes = notes.filter((note) => {
-        return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
-    })
-    
-    document.querySelector('#notes').innerHTML = '';
-
-    filteredNotes.forEach((note) => {
-        const newNote = document.createElement('p');
-        newNote.textContent = note.title;
-        document.querySelector('#notes').appendChild(newNote);
-    })
-}
-
 renderNotes(notes, filters);
 
+// Event Listener for Create Note Button
 document.querySelector('#create-note').addEventListener('click', (e) => {
-    e.target.textContent = "you done clicked me";
+    notes.push({
+        title: '',
+        body: ''
+    })
+    saveNotes(notes);
+    renderNotes(notes, filters);
 })
 
+// Event listener for filter notes input
 document.querySelector('#search-text').addEventListener('input', (e) => {
     filters.searchText = e.target.value;
     renderNotes(notes, filters);
 })
 
+// Event listener for sort-by dropdown
 document.querySelector('#filtered-by').addEventListener('change', (e) => {
     console.log(e.target.value);
 })
