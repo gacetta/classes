@@ -7,14 +7,15 @@ const filters = {
 renderNotes(notes, filters);
 
 // Event Listener for Create Note Button
-document.querySelector('#create-note').addEventListener('click', (e) => {
+document.querySelector('#create-note').addEventListener('click', () => {
+    const id = uuidv4()
     notes.push({
-        id: uuidv4(),
+        id: id,
         title: '',
         body: ''
     })
     saveNotes(notes);
-    renderNotes(notes, filters);
+    location.assign(`/edit.html#${id}`);
 })
 
 // Event listener for filter notes input

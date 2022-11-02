@@ -25,10 +25,10 @@ const renderTodos = (todos, filters) => {
     const incompleteTodos = filteredTodos.filter((todo) => {
         return !todo.completed;
     })
-    
+
     document.querySelector('#todos').innerHTML = '';
     
-    generateSummaryDOM(filteredTodos);
+    generateSummaryDOM(incompleteTodos);
 
     filteredTodos.forEach((todo) => {
         document.querySelector('#todos').appendChild(generateTodoDOM(todo));
@@ -46,6 +46,17 @@ const removeTodo = (id) => {
     }
 }
 
+// Toggle Todo Completed
+const toggleTodo = (id) => {
+    const todo = todos.find((todo) => {
+        return todo.id === id;
+    })
+
+    if (todo !== undefined) {
+        todo.completed = !todo.completed;
+    }
+}
+
 // Get the DOM elements for an individual note
 const generateTodoDOM = (todo) => {
     const todoEl = document.createElement('div');
@@ -55,6 +66,13 @@ const generateTodoDOM = (todo) => {
 
     // Set up Checkbox
     checkboxEl.setAttribute('type', 'checkbox');
+    checkboxEl.checked = todo.completed;
+    checkboxEl.addEventListener('change', (e) => {
+        toggleTodo(todo.id);
+        checkboxEl.checked = todo.completed;
+        saveTodos(todos);
+        renderTodos(todos, filters);
+    })
     todoEl.appendChild(checkboxEl);
 
     // Set up todo text
