@@ -17,8 +17,13 @@ const saveTodos = (todos) => {
 // Render application todos based on filters
 const renderTodos = (todos, filters) => {
     const filteredTodos = todos.filter((todo) => {
-        if (filters.hideCompleted && todo.completed) return false;
-        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+        const hideCompletedMatch = !filters.hideCompleted || !todo.completed
+        const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+        return searchTextMatch && hideCompletedMatch
+    })
+
+    const incompleteTodos = filteredTodos.filter((todo) => {
+        return !todo.completed;
     })
     
     document.querySelector('#todos').innerHTML = '';
@@ -30,18 +35,49 @@ const renderTodos = (todos, filters) => {
     })
 }
 
+// Remove the Todo when button is clicked
+const removeTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => {
+        return todo.id === id;
+    })
+
+    if (todoIndex > -1) {
+        todos.splice(todoIndex, 1);
+    }
+}
+
 // Get the DOM elements for an individual note
 const generateTodoDOM = (todo) => {
-    const newTodo = document.createElement('p');
-    newTodo.textContent = todo.text;
-    return newTodo;
+    const todoEl = document.createElement('div');
+    const checkboxEl = document.createElement('input');
+    const textEl = document.createElement('span');
+    const removeButton = document.createElement('button');
+
+    // Set up Checkbox
+    checkboxEl.setAttribute('type', 'checkbox');
+    todoEl.appendChild(checkboxEl);
+
+    // Set up todo text
+    textEl.textContent = todo.text;
+    todoEl.appendChild(textEl);
+
+    // Set up remove button
+    removeButton.textContent = 'x';
+    todoEl.appendChild(removeButton);
+    removeButton.addEventListener('click', () => {
+        removeTodo(todo.id);
+        saveTodos(todos);
+        renderTodos(todos, filters);
+    })
+
+    return todoEl;
 }
 
 // Get the DOM elements for list summary
-const generateSummaryDOM = (filteredTodos) => {
-    const todosLeft = document.createElement('h2');
-    todosLeft.textContent = `You have ${filteredTodos.length} todos left`;
-    document.querySelector('#todos').appendChild(todosLeft);
+const generateSummaryDOM = (incompleteTodos) => {
+    const summary = document.createElement('h2');
+    summary.textContent = `You have ${incompleteTodos.length} todos left`;
+    document.querySelector('#todos').appendChild(summary);
 }
 
 // 'use strict'
