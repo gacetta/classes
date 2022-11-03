@@ -1,9 +1,10 @@
 const titleInput = document.querySelector('#note-title');
+const dateEl = document.querySelector('#last-edited');
 const bodyInput = document.querySelector('#note-body');
 const removeButton = document.querySelector('#remove-note');
 const noteId = location.hash.substring(1);
-const notes = getSavedNotes();
-const note = notes.find((note) => {
+let notes = getSavedNotes();
+let note = notes.find((note) => {
     return note.id === noteId;
 })
 
@@ -13,16 +14,21 @@ if (note === undefined) {
 
 titleInput.value = note.title;
 bodyInput.value = note.body;
+dateEl.textContent = generateLastEdited(note);
 
 // Title input Event
 titleInput.addEventListener('input', (e) => {
     note.title = e.target.value;
+    updateTimestamp(note);
+    dateEl.textContent = generateLastEdited(note)
     saveNotes(notes);
 })
 
 // Body input event
 bodyInput.addEventListener('input', (e) => {
     note.body = e.target.value;
+    updateTimestamp(note);
+    dateEl.textContent = generateLastEdited(note)
     saveNotes(notes);
 })
 
@@ -31,6 +37,25 @@ removeButton.addEventListener('click', () => {
     removeNote(noteId);
     saveNotes(notes);
     location.assign('/index.html');
+})
+
+// Data Sync Across Pages
+window.addEventListener('storage', (e) => {
+    if (e.key === 'notes') {
+        notes = JSON.parse(e.newValue);
+        let note = notes.find((note) => {
+            return note.id === noteId;
+        })
+        
+        if (note === undefined) {
+            location.assign('/index.html')
+        }
+
+        titleInput.value = note.title;
+        bodyInput.value = note.body;
+        dateEl.textContent = generateLastEdited(note)
+    }
+    
 })
 
 // 'use strict'
