@@ -75,17 +75,18 @@ const sortNotes = (notes, sortBy) => {
                 return 0;
             }
         })
-    } else if (sortBy = 'byCreated') {
+    } else if (sortBy === 'byCreated') {
         return notes.sort((a, b) => {
             if (a.createdAt > b.createdAt) {
                 return -1;
             } else if (a.createdAt < b.createdAt) {
                 return 1;
             } else {
-                return 0
+                return 0;
             }
         })
     } else if (sortBy === 'alphabetical') {
+        console.log('sorting alphabetically')
         return notes.sort((a, b) => {
             if (a.title.toLowerCase() < b.title.toLowerCase()) {
                 return -1;
@@ -97,6 +98,29 @@ const sortNotes = (notes, sortBy) => {
         })
     }
 }
+
+// // Sort notes refactor
+// function sortNotes(notes, sortBy) {
+//     switch (sortBy) {
+//         case 'byEdited':
+//             return notes.sort((a, b) => {
+//                 let result = a.updatedAt > b.updatedAt ? -1 : -2;
+//                 return result === -1 ? result : Number(a.updatedAt < b.updatedAt);
+//             })
+//         case 'byCreated':
+//             return notes.sort((a, b) => {
+//                 let result = a.createdAt > b.createdAt ? -1 : -2;
+//                 return result === -1 ? result : Number(a.createdAt < b.createdAt);
+//             })
+//         case 'alphabetical':
+//             return notes.sort((a, b) => {
+//                 let result = a.title.toLowerCase() < b.title.toLowerCase() ? -1 : -2;
+//                 return result === -1 ? result : Number(a.title.toLowerCase() > b.title.toLowerCase());
+//             })
+//         default:
+//             return notes;
+//     }
+// }
 
 // Render application notes
 const renderNotes = function (notes, filters) {

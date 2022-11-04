@@ -22,18 +22,19 @@ document.querySelector('#create-note').addEventListener('click', () => {
     location.assign(`/edit.html#${id}`);
 })
 
-// Event listener for filter notes input
-document.querySelector('#search-text').addEventListener('input', (e) => {
-    filters.searchText = e.target.value;
-    renderNotes(notes, filters);
-})
-
 // Event listener for sort-by dropdown
 document.querySelector('#filtered-by').addEventListener('change', (e) => {
     filters.sortBy = e.target.value;
     renderNotes(notes, filters);
 })
 
+// Event listener for filter notes input
+document.querySelector('#search-text').addEventListener('input', (e) => {
+    filters.searchText = e.target.value;
+    renderNotes(notes, filters);
+})
+
+// Event listener for storage update
 window.addEventListener('storage', (e) => {
     if (e.key === 'notes') {
         notes = JSON.parse(e.newValue);
