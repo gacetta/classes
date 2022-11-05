@@ -44,12 +44,12 @@ const generateNoteDOM = function (note) {
 
     // Setup the remove note button
     button.textContent = 'x';
-    noteEl.appendChild(button);
     button.addEventListener('click', () => {
         removeNote(note.id);
         saveNotes(notes);
         renderNotes(notes, filters);
     })
+    noteEl.appendChild(button);
     
     // Setup the note title text
     if (note.title.length > 0) {
