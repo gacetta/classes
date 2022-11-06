@@ -36,7 +36,6 @@ const removeNote = (id) => {
     }
 }
 
-
 const generateNote = function (note) {
     const noteEl = document.createElement('div');
     const textEl = document.createElement('a');
@@ -99,6 +98,22 @@ const sortNotes = (notes, sortBy) => {
     }
 }
 
+
+const renderNotes = function (notes, filters) {
+    notes = sortNotes(notes, filters.sortBy);
+    const filteredNotes = notes.filter((note) => {
+        return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
+    })
+    
+    document.querySelector('#notes').innerHTML = '';
+    
+    filteredNotes.forEach((note) => {
+        const newNote = generateNote(note)
+        document.querySelector('#notes').appendChild(newNote);
+    })
+}
+
+
 // // Sort notes refactor
 // function sortNotes(notes, sortBy) {
 //     switch (sortBy) {
@@ -121,20 +136,6 @@ const sortNotes = (notes, sortBy) => {
 //             return notes;
 //     }
 // }
-
-const renderNotes = function (notes, filters) {
-    notes = sortNotes(notes, filters.sortBy);
-    const filteredNotes = notes.filter((note) => {
-        return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
-    })
-    
-    document.querySelector('#notes').innerHTML = '';
-
-    filteredNotes.forEach((note) => {
-        const newNote = generateNote(note)
-        document.querySelector('#notes').appendChild(newNote);
-    })
-}
 
 // 'use strict'
 
