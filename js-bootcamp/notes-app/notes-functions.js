@@ -36,20 +36,20 @@ const removeNote = (id) => {
     }
 }
 
-// Generate the DOM structure for note
-const generateNoteDOM = function (note) {
+
+const generateNote = function (note) {
     const noteEl = document.createElement('div');
     const textEl = document.createElement('a');
-    const button = document.createElement('button');
+    const noteButton = document.createElement('button');
 
     // Setup the remove note button
-    button.textContent = 'x';
-    button.addEventListener('click', () => {
+    noteButton.textContent = 'x';
+    noteButton.addEventListener('click', () => {
         removeNote(note.id);
         saveNotes(notes);
         renderNotes(notes, filters);
     })
-    noteEl.appendChild(button);
+    noteEl.appendChild(noteButton);
     
     // Setup the note title text
     if (note.title.length > 0) {
@@ -122,7 +122,6 @@ const sortNotes = (notes, sortBy) => {
 //     }
 // }
 
-// Render application notes
 const renderNotes = function (notes, filters) {
     notes = sortNotes(notes, filters.sortBy);
     const filteredNotes = notes.filter((note) => {
@@ -132,7 +131,7 @@ const renderNotes = function (notes, filters) {
     document.querySelector('#notes').innerHTML = '';
 
     filteredNotes.forEach((note) => {
-        const newNote = generateNoteDOM(note)
+        const newNote = generateNote(note)
         document.querySelector('#notes').appendChild(newNote);
     })
 }
