@@ -241,9 +241,6 @@ This AST is then sent to the **interpreter** (Ignition for chrome) where it is c
   3. reverse-shadow
 - haved posted a few questions / answer a few questions
 
-
-Hideaki
-  5:59 PM
 # code-reviewer onboarding (starting unit 2)
 ## attitude
 - always use a positive tone
