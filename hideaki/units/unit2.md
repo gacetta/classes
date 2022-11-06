@@ -4,7 +4,8 @@
 
 2. Start using `conventional commits`. It can be loose, but all of your git commit messages should start with something like “feat: ” or “add: ” or “chore: ” etc...
 
-3. Look up following terms and take notes in your own words
+3. Look up following terms and take notes in your own words:
+
    - **Be familiar with names of other popular computer languages**
    Pure Compiled Languages: C, C++, C#, Erlang, Rust, Haskell, Go, Fortran, Pascal, Scala, Lisp, 
    Interpreted languages: PHP, Ruby, Python, JavaScript, Perl/Raku, Tcl
@@ -68,10 +69,10 @@
     * Companies working on C# are Microsoft, Stack Overflow, Accenture, Alibaba Travels
 
 
-   - **Dynamically typed languages vs statically typed languages**
+  - **Dynamically typed languages vs statically typed languages**
 
-   A language is **statically-typed** if the type of a variable is known at compile time instead of run time.  In a statically typed language, once a variable has been declared with a type, it cannot ever be assigned a variable of another type.  The advantages of statically typed languages are many errors are caught in the early development stages, and, more importantly, it results in compiled code that executes more quickly because the compiler knows the exact data types and can produce optimized machine code.
-   - Common examples of statically typed languages: Java, C, C++, C#, FORTRAN, Pascal and Scala.  
+  A language is **statically-typed** if the type of a variable is known at compile time instead of run time.  In a statically typed language, once a variable has been declared with a type, it cannot ever be assigned a variable of another type.  The advantages of statically typed languages are many errors are caught in the early development stages, and, more importantly, it results in compiled code that executes more quickly because the compiler knows the exact data types and can produce optimized machine code.
+  - Common examples of statically typed languages: Java, C, C++, C#, FORTRAN, Pascal and Scala.  
 
   A language is **dynamically-typed** if the type of a variable is checked during run-time. In dynamically typed languages, variables can be initialized with a value of a certain type but reassigned a value of a different type while during program execution.  It usually results in less optimized code than static type checking and includes the possibility of run time type errors.  This forces run time checks to occur for every execution of the program instead of once at compile-time.
   - Common examples of dynamically typed languages: JavaScript, Objective-C, PHP, Python, Ruby, Lisp,and Tcl
