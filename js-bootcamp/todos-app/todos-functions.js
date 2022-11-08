@@ -2,11 +2,7 @@
 const getSavedTodos = () => {
     const todosJSON = localStorage.getItem('todos');
 
-    if (todosJSON !== null) {
-        return JSON.parse(todosJSON);
-    } else {
-        return [];
-    }
+    return todosJSON !== null ? JSON.parse(todosJSON) : [];
 }
 
 // Save todos to localStorage
@@ -22,9 +18,7 @@ const renderTodos = (todos, filters) => {
         return searchTextMatch && hideCompletedMatch
     })
 
-    const incompleteTodos = filteredTodos.filter((todo) => {
-        return !todo.completed;
-    })
+    const incompleteTodos = filteredTodos.filter((todo) => !todo.completed);
 
     document.querySelector('#todos').innerHTML = '';
     
@@ -37,9 +31,7 @@ const renderTodos = (todos, filters) => {
 
 // Remove the Todo when button is clicked
 const removeTodo = (id) => {
-    const todoIndex = todos.findIndex((todo) => {
-        return todo.id === id;
-    })
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
 
     if (todoIndex > -1) {
         todos.splice(todoIndex, 1);
@@ -48,9 +40,7 @@ const removeTodo = (id) => {
 
 // Toggle Todo Completed
 const toggleTodo = (id) => {
-    const todo = todos.find((todo) => {
-        return todo.id === id;
-    })
+    const todo = todos.find((todo) => todo.id === id);
 
     if (todo !== undefined) {
         todo.completed = !todo.completed;
