@@ -1,3 +1,5 @@
+'use strict'
+
 const titleInput = document.querySelector('#note-title');
 const dateEl = document.querySelector('#last-edited');
 const bodyInput = document.querySelector('#note-body');
