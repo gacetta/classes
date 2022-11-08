@@ -4,9 +4,7 @@ const bodyInput = document.querySelector('#note-body');
 const removeButton = document.querySelector('#remove-note');
 const noteId = location.hash.substring(1);
 let notes = getSavedNotes();
-let note = notes.find((note) => {
-    return note.id === noteId;
-})
+let note = notes.find((note) => note.id === noteId);
 
 if (note === undefined) {
     location.assign('/index.html')
@@ -43,9 +41,7 @@ removeButton.addEventListener('click', () => {
 window.addEventListener('storage', (e) => {
     if (e.key === 'notes') {
         notes = JSON.parse(e.newValue);
-        let note = notes.find((note) => {
-            return note.id === noteId;
-        })
+        let note = notes.find((note) => note.id === noteId);
         
         if (note === undefined) {
             location.assign('/index.html')
