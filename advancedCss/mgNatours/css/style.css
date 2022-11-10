@@ -19,6 +19,27 @@ Dark green: #28b485
 :root {
   --light-green-transparent: rgba(126, 213, 111, 0.8);
   --dark-green-transparent: rgba(40, 180, 131, 0.8);
+  --dark-grey: #777;
+  --white: #fff;
+  --html-font-size: 62.5%;
+  --font-weight-default: 400;
+  --font-weight-heavier: 700;
+  --font-size-default: 16px;
+  --font-size-larger: 2rem;
+  --font-size-largest: 6rem;
+  --line-height: 1.7;
+  --padding-small: 3rem;
+  --margin-default: 6rem;
+  --header-height: 95vh;
+  --header-position-top: 4rem;
+  --header-position-left: 4rem;
+  --letter-spacing-medium: 1.75rem;
+  --letter-spacing-large: 3.5rem;
+  --logo-height: 3.5rem;
+  --logo-translate-distance: 80rem;
+  --text-box-position-top: 40%;
+  --text-box-position-left: 50%;
+  --animation-distance: 10rem;
 }
 
 html {
@@ -27,17 +48,17 @@ html {
 
 body {
   font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
+  font-weight: var(--font-weight-default);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height);
+  color: var(--dark-gray);
+  padding: var(--padding-small);
 
   box-sizing: border-box;
 }
 
 .header {
-  height: 95vh;
+  height: var(--header-height);
   background-image: 
     linear-gradient(
       to bottom right,
@@ -53,42 +74,42 @@ body {
 
 .header__logo-box {
   position: absolute;
-  top: 4rem;
-  left: 4rem;
+  top: var(--header-position-top);
+  left: var(--header-position-left);
 }
 
 .header__logo {
-  height: 3.5rem;
+  height: var(--logo-height);
   opacity: 1;
   transition: all 1.5s ease-in;
 }
 
 .header__logo:hover {
-  transform: translate(80rem);  /*having trouble figuring out this value.*/
+  transform: translate(var(--logo-translate-distance));  /*having trouble figuring out this value.*/
   opacity: 0;
 }
 
 .header__text-box {
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: var(--text-box-position-top);
+  left: var(--text-box-position-left);
   transform: translate(-50%, -50%); 
   text-align: center;
 }
 
 .heading-primary {
-  color: #fff;
+  color: var(--white);
   text-transform: uppercase;
 
   backface-visibility: hidden;
-  margin-bottom: 6rem;
+  margin-bottom: var(--margin-default);
 }
 
 .heading-primary--main {
   display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
+  font-size: var(--font-size-largest);
+  font-weight: var(--font-weight-default);
+  letter-spacing: var(--letter-spacing-large);
 
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -99,9 +120,9 @@ body {
 }
 .heading-primary--sub {
   display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
+  font-size: var(--font-size-larger);
+  font-weight: var(--font-weight-heavier);
+  letter-spacing: var(--letter-spacing-medium);
   animation: moveInRight 1s ease-out;
 }
 
