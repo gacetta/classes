@@ -88,6 +88,19 @@ Just as OS grew, so did programming languages.  Assembly code was improved upon,
 
 12. Be able to articulate the inputs and outputs of the array methods `forEach`, `map`, `filter`, `reduce` (expect to spend a ton of time on reduce!)
 
+- `Array.forEach(callback(element, index, array))`.  `forEach()` is passed a callback function that is invoked "for each" element in the array.  A `return` statement does not break the loop.
+INPUT: callback function to run on each element (like a loop)
+OUTPUT: none (`undefined`)
+- `Array.map(callback(element, index, array))`.  `map()` is passed a callback function that is invoked on each element in the array.  The evaluated result is "mapped" to the same index on a new array that is returned after populating the array with all the evaulated results.
+INPUT: callback function to run on each element to potentially modify every value
+OUPUT: a new array with the same number of elements as the initial array
+- `Array.filter(callback(element, index, array))`. This method "filters" an array by returning a shallow copy of the array that is the same size or smaller.  `filter()` is passed a callback function that is invoked on each element in the array.  A shallow copy of the array is returned populated only with elements that evaluate to truthy when the callback function is invoked.
+INPUT: callback function to run on each element to filter down the array
+OUTPUT: a shallow copy of the array with the same number of elements or less.
+- `Array.reduce(callback(accumulator, currentValue, currentIndex, array), initialValue)`.  This is the most flexible and complicated Array method.  Like, `map, filter, forEach`, it is passed a callback function that is used to reduce the array to a single value of any type .  This could be the sum of all elements, or an array that contains all the elements + 10, or an array that contains only the elements that start with 't', or a boolean if all elements are strings, or an object that counts how many appearances of each element there is.  It has much more flexibility than any other array method.
+INPUT: callback function to run on each element
+OUPUT: a single value of any type - very flexible function
+
 ## Requirements before unit interview
 - have done at least 2 `#mock_interviews`
 - continued to take notes and push to github
