@@ -57,6 +57,8 @@ A full kernal:
 
 3. freeCodeCamp - start JavaScript Alrogithms and Data Structures section up to end of “Basic Data Structures”(first few sections will be review, but that’s ok). For the Regex section, no need to memorize anything! Just do the exercise once and take notes and don’t get too caught up in it (be aware of what it does)
 
+- some of these will feel very easy. Practice going at the maximum speed that's still under control! For very easy algos, you should be able to verbalize and communicate while coding and complete everything (including testing) in a couple minutes.
+
 4. Do a few mock interviews with js algorithms. Make sure you are communicating, and make the mock interview flow a part of everyday studying.
 
 5. If you haven’t already, purchase Udemy class `“Advanced CSS and Sass: Flexbox, Grid, Animations and ..“` by Jonas Schmedtmann and go to end of Section 4 - ***CHECK***
