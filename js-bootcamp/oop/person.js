@@ -1,12 +1,3 @@
-const person = function () {
-
-}
-
-
-const me = new person();
-
-console.log(me);
-
 // // // Prototypal Inheritance
 // // // myPerson -> Person.prototype -> Object.prototype -> null
 
