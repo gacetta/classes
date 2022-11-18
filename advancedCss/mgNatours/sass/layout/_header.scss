@@ -1,5 +1,5 @@
 .header {
-  height: var(--header-height);
+  height: 95vh;
   background-image: 
     linear-gradient(
       to bottom right,
@@ -14,25 +14,25 @@
 
   &__logo-box {
     position: absolute;
-    top: var(--header-position-top);
-    left: var(--header-position-left);
+    top: 4rem;
+    left: 4rem;
   }
   
   &__logo {
-    height: var(--logo-height);
+    height: 3.5rem;
     opacity: 1;
     transition: all 1.5s ease-in;
   }
   
   &__logo:hover {
-    transform: translate(var(--logo-translate-distance));  /*having trouble figuring out this value.*/
+    transform: translate(80rem);  /*having trouble figuring out this value.*/
     opacity: 0;
   }
   
   &__text-box {
     position: absolute;
-    top: var(--text-box-position-top);
-    left: var(--text-box-position-left);
+    top: 40%;
+    left: 50%;
     transform: translate(-50%, -50%); 
     text-align: center;
   }

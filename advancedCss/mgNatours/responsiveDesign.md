@@ -25,3 +25,23 @@ Flex box
 
 CSS Grid
 - For laying out element in a fully-fledged 2-dimensional grid.  Perfect for page layouts and complex components.
+
+
+
+JAVI Interview:
+
+Function Declaration vs Function Expression vs Arrow Function
+
+DOM Manipulation:
+
+1. open blank page in browser, open console in dev tools
+2. create an h1 and print it to the screen
+3. += text to the h1
+4. replace the text
+5. remove the element
+6. do the same in VSCode
+
+Functions
+1. create new js.file in VS code
+2. declare a function that takes a number as an arguemnt, returns true if even
+3. declare variable 
