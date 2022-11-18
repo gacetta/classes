@@ -1,0 +1,39 @@
+.header {
+  height: var(--header-height);
+  background-image: 
+    linear-gradient(
+      to bottom right,
+      rgba($color-primary-light, .8), 
+      rgba($color-primary-dark, .8)),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    position: absolute;
+    top: var(--header-position-top);
+    left: var(--header-position-left);
+  }
+  
+  &__logo {
+    height: var(--logo-height);
+    opacity: 1;
+    transition: all 1.5s ease-in;
+  }
+  
+  &__logo:hover {
+    transform: translate(var(--logo-translate-distance));  /*having trouble figuring out this value.*/
+    opacity: 0;
+  }
+  
+  &__text-box {
+    position: absolute;
+    top: var(--text-box-position-top);
+    left: var(--text-box-position-left);
+    transform: translate(-50%, -50%); 
+    text-align: center;
+  }
+}
