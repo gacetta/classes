@@ -25,28 +25,3 @@ Flex box
 
 CSS Grid
 - For laying out element in a fully-fledged 2-dimensional grid.  Perfect for page layouts and complex components.
-
-
-
-Unit 38-41
-
-## Using Icon Font in CSS
----
-## Child Combiner (Direct Child Selector)
----
-The child combinator (`>`) is placed between two CSS selectors. It matches only those elements matched by the second selector that are the direct children of elements matched by the first.
-
----
-## Outline (vs Border)
----
-`outline:` is similar to border. `1px solid color`
-
-however, it gives access to `outline-offset: distance` that gives a cool transparent effect
-
----
-## Rotate 3D effect
----
-Involves `perspective`.
-
-`rotateY(deg)` will rotate an element on the Y axis (vertically).
-`perspective` property must be added to parent element to work properly
