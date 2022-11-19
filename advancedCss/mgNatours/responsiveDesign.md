@@ -28,20 +28,25 @@ CSS Grid
 
 
 
-JAVI Interview:
+Unit 38-41
 
-Function Declaration vs Function Expression vs Arrow Function
+## Using Icon Font in CSS
+---
+## Child Combiner (Direct Child Selector)
+---
+The child combinator (`>`) is placed between two CSS selectors. It matches only those elements matched by the second selector that are the direct children of elements matched by the first.
 
-DOM Manipulation:
+---
+## Outline (vs Border)
+---
+`outline:` is similar to border. `1px solid color`
 
-1. open blank page in browser, open console in dev tools
-2. create an h1 and print it to the screen
-3. += text to the h1
-4. replace the text
-5. remove the element
-6. do the same in VSCode
+however, it gives access to `outline-offset: distance` that gives a cool transparent effect
 
-Functions
-1. create new js.file in VS code
-2. declare a function that takes a number as an arguemnt, returns true if even
-3. declare variable 
+---
+## Rotate 3D effect
+---
+Involves `perspective`.
+
+`rotateY(deg)` will rotate an element on the Y axis (vertically).
+`perspective` property must be added to parent element to work properly
