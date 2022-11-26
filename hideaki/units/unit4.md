@@ -16,6 +16,9 @@
 8. be able to reduce different data types as returns
 
 9. prototype_basic algo (message me).  //towards end
+String.prototype.announceFirstChar = function() {
+  console.log(`The first character of the string is ${this[0]}`);
+}
 Terms you should now be familiar with:
 - classes vs functions
 - prototypal inheritance
@@ -33,3 +36,4 @@ By this point you should understand the fundamentals of html, css, js and be abl
 - have posted a few questions / answered a few questions
 - can explain the idea of protyping and OOP in javascript in detail
 - can explain and code css flexbox and grid
+
