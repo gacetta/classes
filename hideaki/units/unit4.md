@@ -20,10 +20,10 @@ String.prototype.announceFirstChar = function() {
   console.log(`The first character of the string is ${this[0]}`);
 }
 Terms you should now be familiar with:
-- classes vs functions
+- classes vs functions - classes are a template for creating objects that encapsulate data in one place.
 - prototypal inheritance
-- constructor function
-- what is a prototype
+- constructor function - called when `new` is used.  Binds `this` to the current new Object.
+- what is a prototype - prototype is an existing inbuilt functionality in JS.  Nearly everything in JavaScript is an object.  Arrays and 
 - what is a dunder proto
 - keyword this
 
@@ -37,3 +37,27 @@ By this point you should understand the fundamentals of html, css, js and be abl
 - can explain the idea of protyping and OOP in javascript in detail
 - can explain and code css flexbox and grid
 
+OOP
+
+function makeUser(name, age) {
+  return {
+    name: name,
+    age: age,
+    method1: function() {
+      console.log('my butt')
+    }
+  }
+}
+
+Object.create(prototype)
+
+class ClassName {
+  constructor(arg1, arg2) {
+    this.arg1 = arg1;
+    this.arg2 = arg2;
+  }
+}
+
+class ExtendedClass extends Classname {
+  
+}

@@ -38,7 +38,7 @@ use jsonplaceholder or pokemon api
   customLog(‘hi’, {capitalizeFirst: true}) -> ‘Hi’
   customLog(‘hello’, {capitalizeAll: true}) -> “HELLO”
   customLog(’hi there”) -> “hi there”
-  Note how using an object makes the function l
+  Note how using an object makes the function logic a tiny bit more complicated, but gives the ability for all consumers of the function to label the option that they are turning on or off!
 
 7. Promise function exercise
    - take a simple algorithm like divide(num1, num2) which returns the value of num1/num2
