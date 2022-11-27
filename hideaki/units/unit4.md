@@ -1,11 +1,11 @@
 # Unit 4 - Finish sass course html/css for now, Prototype and classes and ‘this’, intro to recursion
 1. finish Jonas Udemy class, look into post-css which is probably the direction css is going in
 
-2. Look for Udemy sales for (get most recent edition if multiple versions are available): "JavaScript Algorithms and Data Structures Masterclass" by Colt Steele
+2. Look for Udemy sales for (get most recent edition if multiple versions are available): "JavaScript Algorithms and Data Structures Masterclass" by Colt Steele - check
 
-3. do a #mock_interviews as the interviwer
+3. do a #mock_interviews as the interviwer - check
 
-4. html/css/js project https://www.youtube.com/watch?v=srvUrASNj0s&t=6478s
+4. html/css/js project https://www.youtube.com/watch?v=srvUrASNj0s&t=6478s - SKIPPED
 
 5. csx - finish until end of “Object Oriented Programming”, attend related lectures
 
