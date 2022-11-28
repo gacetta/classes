@@ -10,17 +10,21 @@ const filters = {
 renderTodos(todos, filters);
 
 document.querySelector('#add-todo').addEventListener('submit', (e) => {
+    console.log(e);
+    const text = e.target.elements.text.value.trim();
     e.preventDefault();
-    const todoText = e.target.elements.todoText.value;
-    const newTodo = {
-        id: uuidv4(),
-        text: todoText,
-        completed: false,
+    
+    if (text !== '') {
+        const newTodo = {
+            id: uuidv4(),
+            text,
+            completed: false,
+        }
+        todos.push(newTodo);
+        saveTodos(todos);
+        renderTodos(todos, filters);
+        e.target.elements.text.value = '';
     }
-    todos.push(newTodo);
-    saveTodos(todos);
-    renderTodos(todos, filters);
-    e.target.elements.todoText.value = '';
 })
 
 // Event Listener for Search Todos Text Input
