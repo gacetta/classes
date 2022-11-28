@@ -40,7 +40,7 @@ const renderTodos = (todos, filters) => {
     } else {
         const emptyMessageEl = document.createElement('p');
         emptyMessageEl.classList.add('empty-message');
-        emptyMessageEl.textContent = 'No to-dos to show';
+        emptyMessageEl.textContent = 'There are no to-dos to show';
         todoEl.append(emptyMessageEl);
     }
 }
