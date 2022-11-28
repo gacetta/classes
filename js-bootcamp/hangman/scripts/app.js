@@ -1,6 +1,6 @@
-const puzzleEl = document.querySelector('#puzzle');
-const guessesEl = document.querySelector('#guesses');
+const puzzleEl = document.querySelector('.puzzle');
 const statusEl = document.querySelector('#status');
+const guessesEl = document.querySelector('#guesses');
 let game1;
 
 // puzzleEl.textContent = game1.puzzle;
@@ -12,9 +12,25 @@ window.addEventListener('keypress', (e) => {
 })
 
 const render = () => {
-  puzzleEl.textContent = game1.puzzle;
-  guessesEl.textContent = `Guessed letters: ${game1.guessedLetters}`;
+  puzzleEl.innerHTML = '';
   statusEl.textContent = game1.statusMessage;
+  guessesEl.textContent = `Guessed letters: `;
+
+  game1.puzzle.split('').forEach((char) => {
+    const charSpan = document.createElement('span');
+    charSpan.textContent = char;
+    charSpan.setAttribute('class', 'puzzle-guess');
+    puzzleEl.append(charSpan);
+  })
+
+  game1.guessedLetters.forEach((char) => {
+    if(char !== ' '){
+      const charSpan = document.createElement('span');
+      charSpan.textContent = `${char}, `;
+      charSpan.setAttribute('class', 'guess');
+      guessesEl.append(charSpan);
+    }
+  })
 }
 
 const startGame = async () => {
