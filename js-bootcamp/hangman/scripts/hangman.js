@@ -16,19 +16,22 @@ class Hangman {
     if (this.status === 'playing') {
       return `Guesses left: ${this.remainingGuesses}`;
     } else if (this.status === 'failed') {
-      return `Nice try!  The word was "${this.word.join('')}`;
+      return `Nice try!  The word was "${this.word.join('').toUpperCase()}"`;
     } else {
       return `Great work!  You guessed the word correctly!`
     }
   }
   makeGuess(guess) {
-    if (this.status === 'playing') {
+    const isLetterRegex = /[a-zA-Z]/;
+    if (this.status === 'playing' && isLetterRegex.test(guess)) {
       guess = guess.toLowerCase();
       const isUnique = !this.guessedLetters.includes(guess);
-      const isBadGuess = !this.word.includes(guess);
+      const isBadGuess = (!this.word.includes(guess));
   
       if (isUnique) {
         this.guessedLetters.push(guess);
+        insertionSort(this.guessedLetters);
+        
       }
       if (isUnique && isBadGuess) {
         this.remainingGuesses--;
@@ -49,6 +52,18 @@ class Hangman {
       this.status = 'playing';
     }
   }
+}
+
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    const currEl = arr[i];
+    for (let j = i - 1; j >= 0 && arr[j] > currEl; j--) {
+      const sortedEl = arr[j];
+      arr[j + 1] = sortedEl;
+      arr[j] = currEl;
+    }
+  }
+  return arr;
 }
 
 // Hangman.prototype.getPuzzle = function() {

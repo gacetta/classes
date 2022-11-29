@@ -1,6 +1,9 @@
 const puzzleEl = document.querySelector('.puzzle');
 const statusEl = document.querySelector('#status');
 const guessesEl = document.querySelector('#guesses');
+const wordDropdown = document.querySelector('#word-count');
+const guessDropdown = document.querySelector('#guess-count');
+
 let game1;
 
 // puzzleEl.textContent = game1.puzzle;
@@ -33,9 +36,24 @@ const render = () => {
   })
 }
 
+// event listener for drop down
+// document.querySelector('#word-count').addEventListener('change', (e) => {
+//   wordCount = e.target.value
+// })
+
+// const startGame = async (wordCount, guesses) => {
 const startGame = async () => {
-  const puzzle = await getPuzzle('5');
-  game1 = new Hangman(puzzle, 9);
+  
+  // set up word count dropdown
+  const wordCount = wordDropdown.value ? wordDropdown.value : Math.floor(Math.random() * 5 + 1);;
+  console.log('wordCount in startGame: ', wordCount);
+  
+  //set up guesses dropdown
+  const numOfGuesses = guessDropdown.value ? guessDropdown.value : Math.floor(Math.random() * 5 + 1);;
+  console.log('number of guesses in startGame: ', numOfGuesses);
+
+  const puzzle = await getPuzzle(wordCount);
+  game1 = new Hangman(puzzle, numOfGuesses);
   render();
 }
 

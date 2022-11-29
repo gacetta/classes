@@ -16,7 +16,36 @@
     <div class="puzzle"></div>
     <p id="status"></p>
     <p id="guesses"></p>
-    <button id="reset" class="button">Reset</button>
+    
+    <div class="actions__container">
+      <button id="reset" class="button">Reset</button>
+      <select id="word-count" class="dropdown">
+          <option value="" selected disabled>Words</option>
+          <option value="1">1 word</option>
+          <option value="2">2 words</option>
+          <option value="3">3 words</option>
+          <option value="4">4 words</option>
+          <option value="5">5 words</option>
+          <option value="6">6 words</option>
+          <option value="7">7 words</option>
+          <option value="8">8 words</option>
+          <option value="9">9 words</option>
+      </select>
+      <select id="guess-count" class="dropdown">
+        <option value="" selected disabled>Guesses</option>
+        <option value="1">1 guess</option>
+        <option value="2">2 guesses</option>
+        <option value="3">3 guesses</option>
+        <option value="4">4 guesses</option>
+        <option value="5">5 guesses</option>
+        <option value="6">6 guesses</option>
+        <option value="7">7 guesses</option>
+        <option value="8">8 guesses</option>
+        <option value="9">9 guesses</option>
+        <option value="10">10 guesses</option>
+    </select>
+  </div>
+
   </div>
   <script src="scripts/requests.js"></script>
   <script src="scripts/hangman.js"></script>
