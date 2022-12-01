@@ -9,9 +9,12 @@
 input {
   display: block;
   margin: 50px auto;
-  padding: 3rem;
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  background-image: radial-gradient(#e66465, #9198e5);
+}
+
+table {
+  margin: 0 auto;
+}
+
+tr {
+  margin-bottom: 2px;
 }
