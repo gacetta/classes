@@ -1,37 +1,32 @@
 // function getPromise(num1, num2) {
 //   return new Promise((resolve, reject) => {
 //     if (num2 === 0) {
-//       reject('ERROR')
+//       reject('ERROR - YA FUCKED');
 //     } else {
-//       resolve(num1, num2)
+//       resolve([num1, num2]);
 //     }
+//   }).then((data) => {
+//     console.log(data)
+//     console.log(data[0] / data[1])
+//   }).catch((err) => {
+//     console.log(err)
 //   })
-//     .then(()=> {
-//         console.log(num1 / num2)
-//         return num1 / num2
-//       })
-//       .catch((err) => {
-//         console.log(err)
-//       })
 // }
 
 async function getPromise(num1, num2) {
-  const promise = new Promise((resolve, reject) => {
+  const response = new Promise((resolve, reject) => {
     if (num2 === 0) {
-      reject('ERROR')
+      reject('ERROR async fuckery')
     } else {
-      resolve({
-        arg1: num1,
-        arg2: num2
-      })
+      resolve([num1, num2])
     }
   })
 
   try {
-    const result = await promise;
-    console.log(result.arg1 / result.arg2)
-    return result.arg1 / result.arg2;
+    const data = await response;
+    console.log(data[0] / data[1])
+    return data[0] / data[1]
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }

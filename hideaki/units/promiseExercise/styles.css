@@ -6,12 +6,16 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 input {
   display: block;
-  margin: 50px auto;
-  padding: 3rem;
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  background-image: radial-gradient(#e66465, #9198e5);
+  margin: 10rem auto;
+  padding: .5rem 1rem;
+  font-size: 3rem;
+  font-family: 'Caveat', sans-serif;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, .5);
 }
