@@ -1,21 +1,37 @@
-function resolve(num1, num2) {
-  console.log('\nRESOLVE FUNC BLOCK')
-  return num1 / num2;
-}
+// function getPromise(num1, num2) {
+//   return new Promise((resolve, reject) => {
+//     if (num2 === 0) {
+//       reject('ERROR')
+//     } else {
+//       resolve(num1, num2)
+//     }
+//   })
+//     .then(()=> {
+//         console.log(num1 / num2)
+//         return num1 / num2
+//       })
+//       .catch((err) => {
+//         console.log(err)
+//       })
+// }
 
-function reject(message) {
-  console.log('\nREJECT FUNC BLOCK')
-  // console.log(message);
-  return message;
-}
-
-function returnPromise(num1, num2) {
-  console.log('\nRETURN PROMISE')
-  return new Promise(function(resolve, reject) {
+async function getPromise(num1, num2) {
+  const promise = new Promise((resolve, reject) => {
     if (num2 === 0) {
-      reject('Error - denominator is 0')
+      reject('ERROR')
     } else {
-      resolve(num1, num2)
+      resolve({
+        arg1: num1,
+        arg2: num2
+      })
     }
-  });
+  })
+
+  try {
+    const result = await promise;
+    console.log(result.arg1 / result.arg2)
+    return result.arg1 / result.arg2;
+  } catch (err) {
+    console.log(err)
+  }
 }
