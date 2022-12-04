@@ -18,14 +18,13 @@ async function getPromise(num1, num2) {
     if (num2 === 0) {
       reject('ERROR async fuckery')
     } else {
-      resolve([num1, num2])
+      resolve(num1 / num2)
     }
   })
 
   try {
     const data = await response;
-    console.log(data[0] / data[1])
-    return data[0] / data[1]
+    console.log(data);
   } catch (err) {
     console.error(err)
   }

@@ -1,25 +1,30 @@
 const fetchData = async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users');
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
 
-  if (response.status === 200) {
-    const data = await response.json();
-    return data.map((user) => {
-        const [firstName, ...lastName] = user.name.split(' ');
-        return {
-          name: `${lastName.join(' ')}, ${firstName}`,
-          email: user.email
-        }
-      })
-  } else {
-    throw new Error("You've got trouble right here in river city!")
+    if (response.status === 200) {
+      const data = await response.json();
+      return data.map((user) => {
+          const [firstName, ...lastName] = user.name.split(' ');
+          return {
+            name: `${lastName.join(' ')}, ${firstName}`,
+            email: user.email
+          }
+        })
+      } else {
+        throw new Error("You've got trouble right here in river city!")
+      }
+  } catch (err) {
+    console.log(err.message)
+    throw new Error('catch from fetch - MG')
   }
 }
 
 const getTable = async () => {
+  try {
   // create table structure and add to document body
-  const filteredData = await fetchData();
-  console.log(filteredData);
-
+    const filteredData = await fetchData();
+    
   const tableEl = document.createElement('table');
   const tableHeadEl = document.createElement('thead');
   const tableBodyEl = document.createElement('tbody');
@@ -70,9 +75,14 @@ const getTable = async () => {
     // add row to table body
     tableBodyEl.append(userRowEl);
   })
+  } catch (err) {
+    console.log('oops', err.message)
+    return;
+  }
+
 }
 // const getTable = () => {
-//   return fetch('https://jsonplaceholder.typicode.com/users')
+//   return fetch('https://jsonplaceholdder.typicode.com/users')
 //     .then((response) => {
 //     if (response.status === 200) {
 //       return response.json();
@@ -88,7 +98,7 @@ const getTable = async () => {
 //         email: user.email
 //       }
 //     })
-//   }). then((filteredData) => {
+//   }).then((filteredData) => {
 //     // create table structure and add to document body
 //     const tableEl = document.createElement('table');
 //     const tableHeadEl = document.createElement('thead');
@@ -140,6 +150,8 @@ const getTable = async () => {
 //       // add row to table body
 //       tableBodyEl.append(userRowEl);
 //     })
-
+//   }).catch((err) => {
+//     console.log('line 154 catch block', err.message);
+//     return;
 //   })
 // }
