@@ -4,7 +4,7 @@
 - look at dates, Q&A, 
 
 2. Look for Udemy sales for (get most recent edition if multiple versions are available):
-   The Complete React Developer Course (w/ Hooks and Redux)
+   The Complete React Developer Course (w/ Hooks and Redux) - check
 
 3. Udemy - Continue Colt Algo and Data structure class to up end of section 14 (binary search, bubble, insertion, selection sorts)
 
