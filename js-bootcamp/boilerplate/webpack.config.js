@@ -28,5 +28,6 @@ module.exports = {
     devMiddleware: {
       publicPath: "https://localhost:9000/scripts"
     }
-  }
+  },
+  devtool: 'source-map'
 }
