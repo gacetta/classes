@@ -19,10 +19,14 @@ module.exports = {
     }]
   },
   devServer: {
-    contentBase: path.resolve(__dirName, 'public'),
-    publicPath: '/scripts/'
-  },
-  // node: {            // tried with no improvement
-  //   __dirname: true
-  // }
+    watchFiles: ['../src/index.js'],
+    static: {
+      directory: path.resolve(__dirname, 'public'),
+    },
+    compress: true,
+    port: 9000,
+    devMiddleware: {
+      publicPath: "https://localhost:9000/scripts"
+    }
+  }
 }

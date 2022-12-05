@@ -1,3 +1,3 @@
 const scream = (str) => str.toUpperCase() + '!';
 
-export { scream as default}
+export { scream as default }
