@@ -1,15 +1,6 @@
 'use strict'
 
-// Read existing notes from localStorage
-const getSavedNotes = () => {
-    const notesJSON = localStorage.getItem('notes');
 
-    try {
-        return notesJSON ? JSON.parse(notesJSON) : [];
-    } catch (e) {
-        return [];
-    }
-}
 
 // updatedAt Timestamp function
 const updateTimestamp = (note) => {
@@ -19,11 +10,6 @@ const updateTimestamp = (note) => {
 
 // Generate the last edited message
 const generateLastEdited = (note) => `Last edited ${moment(note.updatedAt).fromNow()}`;
-
-// Save notes to localStorage
-const saveNotes = (notes) => {
-    localStorage.setItem('notes', JSON.stringify(notes));
-}
 
 // Remove a note from the list
 const removeNote = (id) => {
