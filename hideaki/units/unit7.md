@@ -10,6 +10,9 @@
 
 5. Project: Set up a build a local full stack app using html, css, front-end js, and express without live server. Create an html for the root route “/”, and make an API for another restful route that triggers on button click that serves JSON that says “Hello, express!”
 
+6. be able to explain how general computer code runs v2.0 including hardware overview (primary storage, secondary storage)
+(watch the video 01 - Intro B - Python for Everybody Course and be able to summarize from memory)
+
 ## Requirements before unit interview
 - can explain why a front-end framework like react is useful
 - can explain what express is and what it’s abstracting
